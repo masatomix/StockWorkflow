@@ -18,7 +18,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1402,1621</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>3189,1876</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -56,7 +56,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="72">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -93,6 +93,7 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked.  &#xA;If there are many decisions, a Flowchart should be used instead." DisplayName="Process" sap:VirtualizedContainerService.HintSize="738,1516" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -111,7 +112,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Actual Processing&#xD;&#xA;product: 商品名&#xD;&#xA;action:  追加 / 削除 / 直接指定 / それ以外&#xD;&#xA;count:  個数&#xD;&#xA;&#xD;&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="696,1052" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap2010:Annotation.AnnotationText="Actual Processing&#xA;product: 商品名&#xA;action:  追加 / 削除 / 直接指定 / それ以外&#xA;count:  個数&#xA;&#xA;" DisplayName="Process" sap:VirtualizedContainerService.HintSize="696,1052" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -327,7 +328,9 @@
                           <uda:FilterArgument.Filter>
                             <uda:GroupFilter Operator="and">
                               <uda:GroupFilter.Filters>
-                                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="0" />
+                                <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
+                                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="product.IsDeleted" FieldType="System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" Operator="=" ValueIndex="0" />
+                                </scg:List>
                               </uda:GroupFilter.Filters>
                               <uda:GroupFilter.Groups>
                                 <scg:List x:TypeArguments="uda:GroupFilter" Capacity="0" />
@@ -337,7 +340,9 @@
                         </uda:FilterArgument>
                       </uda:QueryEntityRecords.FilterArguments>
                       <uda:QueryEntityRecords.FilterValues>
-                        <scg:List x:TypeArguments="InArgument" Capacity="0" />
+                        <scg:List x:TypeArguments="InArgument" Capacity="4">
+                          <InArgument x:TypeArguments="s1:Nullable(x:Boolean)">[False]</InArgument>
+                        </scg:List>
                       </uda:QueryEntityRecords.FilterValues>
                     </uda:QueryEntityRecords>
                   </If.Then>
@@ -350,6 +355,7 @@
                               <uda:GroupFilter.Filters>
                                 <scg:List x:TypeArguments="uda:SimpleFilter" Capacity="4">
                                   <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="product.Name" FieldType="System.String" Operator="=" ValueIndex="0" />
+                                  <uda:SimpleFilter ExpressionValue="{x:Null}" FieldName="product.IsDeleted" FieldType="System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" Operator="=" ValueIndex="1" />
                                 </scg:List>
                               </uda:GroupFilter.Filters>
                               <uda:GroupFilter.Groups>
@@ -362,6 +368,7 @@
                       <uda:QueryEntityRecords.FilterValues>
                         <scg:List x:TypeArguments="InArgument" Capacity="4">
                           <InArgument x:TypeArguments="x:String">[product]</InArgument>
+                          <InArgument x:TypeArguments="s1:Nullable(x:Boolean)">[False]</InArgument>
                         </scg:List>
                       </uda:QueryEntityRecords.FilterValues>
                     </uda:QueryEntityRecords>
